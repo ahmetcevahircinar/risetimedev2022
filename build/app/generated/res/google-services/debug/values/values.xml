@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">1093795560242-kn6r1mv3eb0u0tl6471s8is661bil6rg.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">1093795560242</string>
+    <string name="google_api_key" translatable="false">AIzaSyDnEGknAXjuyNDOsw0K0nha7HRR3oU--Z0</string>
+    <string name="google_app_id" translatable="false">1:1093795560242:android:dd849a18441834adb5b52b</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDnEGknAXjuyNDOsw0K0nha7HRR3oU--Z0</string>
+    <string name="google_storage_bucket" translatable="false">risetimedev2022.appspot.com</string>
+    <string name="project_id" translatable="false">risetimedev2022</string>
+</resources>

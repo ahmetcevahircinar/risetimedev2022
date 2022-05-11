@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1093795560242",
+    "project_id": "risetimedev2022",
+    "storage_bucket": "risetimedev2022.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1093795560242:android:dd849a18441834adb5b52b",
+        "android_client_info": {
+          "package_name": "com.piteknoloji.risetimedev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1093795560242-kn6r1mv3eb0u0tl6471s8is661bil6rg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnEGknAXjuyNDOsw0K0nha7HRR3oU--Z0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1093795560242-kn6r1mv3eb0u0tl6471s8is661bil6rg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
