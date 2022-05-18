@@ -1,9 +1,9 @@
 class DomainFirms {
-  final String id;
-  final String name;
-  final String loginname;
-  final String loginpassword;
-  final String web;
+  final String? id;
+  final String? name;
+  final String? loginname;
+  final String? loginpassword;
+  final String? web;
 
   DomainFirms(
       {this.id, this.name, this.loginname, this.loginpassword, this.web});

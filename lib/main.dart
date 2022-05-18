@@ -53,8 +53,15 @@ class MyApp extends StatelessWidget {
                 context.read<FlutterFireAuthService>().authStateChanges,
             initialData: null,
           ),
+          Provider<FirestoreDomainFirmsService>(
+            create: (_) => FirestoreDomainFirmsService(),
+          ),
           ChangeNotifierProvider(create: (context) => DomainFirmsProvider()),
-          StreamProvider(create: (context)=> FirestoreDomainFirmsService().getDomainFirms()),
+          StreamProvider(
+            create: (context) =>
+                context.read<FirestoreDomainFirmsService>().getDomainFirms(),
+            initialData: null,
+          ),
           ChangeNotifierProvider(create: (context) => MenuDrawerNotifier()),
         ],
         child: MaterialApp(

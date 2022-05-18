@@ -7,23 +7,23 @@ import 'package:uuid/uuid.dart';
 class DomainFirmsProvider with ChangeNotifier {
 
   final firestoreService = FirestoreDomainFirmsService();
-  String _id;
-  String _name;
-  String _loginname;
-  String _loginpassword;
-  String _web;
+  String? _id;
+  String? _name;
+  String? _loginname;
+  String? _loginpassword;
+  String? _web;
 
   var uuid = Uuid();
 
-  String get id => _id;
+  String? get id => _id;
 
-  String get name => _name;
+  String? get name => _name;
 
-  String get loginname => _loginname;
+  String? get loginname => _loginname;
 
-  String get loginpassword => _loginpassword;
+  String? get loginpassword => _loginpassword;
 
-  String get web => _web;
+  String? get web => _web;
 
   changeName(String value) {
     _name = value;
@@ -53,8 +53,7 @@ class DomainFirmsProvider with ChangeNotifier {
     _web = domainfirm.web;
   }
 
-  saveProduct() {
-    print(_id);
+  saveDomainFirm() {
     if (_id == null) {
       var newDomainFirm = DomainFirms(
           id: uuid.v4(),
@@ -75,7 +74,7 @@ class DomainFirmsProvider with ChangeNotifier {
     }
   }
 
-  removeProduct(String id) {
-    firestoreService.removeProduct(id);
+  removeDomainFirm(String id) {
+    firestoreService.removeDomainFirm(id);
   }
 }

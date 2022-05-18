@@ -9,7 +9,7 @@ class CustomSideDrawer extends StatefulWidget {
   _CustomSideDrawerState createState() => _CustomSideDrawerState();
 }
 
-int currentSelectedIndex;
+late int currentSelectedIndex;
 
 class _CustomSideDrawerState extends State<CustomSideDrawer> {
   @override

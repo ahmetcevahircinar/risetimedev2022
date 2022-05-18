@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class NavigationModel {
   String title;
   IconData icon;
-  Action onNavigationSelection;
+  late Action onNavigationSelection;
 
-  NavigationModel({@required this.title, @required this.icon});
+  NavigationModel({required this.title, required this.icon});
 }
 
 List<NavigationModel> navigationItems = [

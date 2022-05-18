@@ -22,18 +22,11 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final firebaseUser = context.watch<User>();
+    final firebaseUser = context.watch<User?>();
 
     if (firebaseUser != null) {
-      print("User also signed in and redirected");
-      print(firebaseUser);
       return SeoTalepScreen();
     }
-
-    print("Not Authenticated");
-
-    print(context.locale);
-
     Size size = MediaQuery.of(context).size;
     // This size provide us total height and width of our screen
     return Background(

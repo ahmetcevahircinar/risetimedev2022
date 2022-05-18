@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CustomListTile extends StatefulWidget {
-  final String title;
-  final IconData icon;
-  bool isSelected = false;
-  final Function onTap;
+  final String? title;
+  final IconData? icon;
+  bool? isSelected = false;
+  final Function()? onTap;
 
-  CustomListTile({Key key, this.title, this.icon, this.onTap, this.isSelected})
+  CustomListTile({Key? key, this.title, this.icon, this.onTap, this.isSelected})
       : super(key: key);
 
   @override
@@ -23,7 +23,7 @@ class _CustomListTileState extends State<CustomListTile> {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(16)),
-          color: (widget.isSelected)
+          color: (widget.isSelected!)
               ? Colors.transparent.withOpacity(1)
               : Colors.transparent,
         ),
@@ -31,12 +31,12 @@ class _CustomListTileState extends State<CustomListTile> {
           children: [
             Icon(
               widget.icon,
-              color: widget.isSelected ? Colors.pink : Colors.white,
+              color: widget.isSelected! ? Colors.pink : Colors.white,
             ),
             SizedBox(width: 5),
-            Text(widget.title,
+            Text(widget.title!,
                 style: TextStyle(
-                  color: (widget.isSelected) ? Colors.pink : Colors.white,
+                  color: (widget.isSelected!) ? Colors.pink : Colors.white,
                   fontSize: 20,
                 )),
           ],

@@ -18,7 +18,7 @@ class FirestoreDomainFirmsService {
         .toList());
   }
 
-  Future<void> removeProduct(String id) {
+  Future<void> removeDomainFirm(String id) {
     return _db.collection('domainfirms').doc(id).delete();
   }
 }

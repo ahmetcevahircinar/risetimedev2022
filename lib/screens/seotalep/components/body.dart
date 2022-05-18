@@ -15,15 +15,6 @@ class Body extends StatelessWidget {
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User>();
 
-    if (firebaseUser != null) {
-      print("User also signed in and redirected");
-      print("SeoTalepScreen");
-      print(firebaseUser);
-    } else {
-      print("firebaseUser is null");
-
-    }
-
     Size size = MediaQuery.of(context).size;
     return Background(
       child: SingleChildScrollView(
@@ -31,7 +22,7 @@ class Body extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              "Looged as: " + firebaseUser.email==null ? "Guest" : firebaseUser.email,
+              "Looged as: " +  firebaseUser.email!,
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(

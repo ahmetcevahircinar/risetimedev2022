@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:risetimedev/models/domain_firms.dart';
 import 'package:risetimedev/models/side_drawer.dart';
-
 import 'editDomainFirmsView.dart';
 
 class DomainFirmsView extends StatelessWidget {
@@ -15,65 +13,64 @@ class DomainFirmsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final domainfirms = Provider.of<List<DomainFirms>>(context);
+    final domainfirms = context.watch<List<DomainFirms>>();
 
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
-    Size size = MediaQuery.of(context).size;
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: [SystemUiOverlay.bottom]);
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: Text('Domain Firms'),
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.blue,
-          actions: <Widget>[
-            IconButton(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text('Domain Firms'),
+        automaticallyImplyLeading: false,
+        backgroundColor: Colors.blue,
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(
+              Icons.add,
+              size: 30.0,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => EditDomainFirmsView()));
+            },
+          )
+        ],
+        leading: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 15),
+          child: Builder(
+            builder: (context) => IconButton(
               icon: Icon(
-                Icons.add,
-                size: 30.0,
-              ),
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => EditDomainFirmsView()));
-              },
-            )
-          ],
-          leading: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15),
-            child: Builder(
-              builder: (context) => IconButton(
-                icon: Icon(
-                  Icons.menu_rounded,
-                  size: 40,
-                  color: Colors.black,
-                ),
+                Icons.menu_rounded,
+                size: 40,
                 color: Colors.black,
-                onPressed: () => Scaffold.of(context).openDrawer(),
               ),
+              color: Colors.black,
+              onPressed: () => Scaffold.of(context).openDrawer(),
             ),
           ),
         ),
-        drawer: CustomSideDrawer(),
-        body: (domainfirms != null)
-            ? ListView.builder(
-                itemCount: domainfirms.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Icon(
-                      Icons.beach_access,
-                      color: Colors.blue,
-                      size: 36.0,
-                    ),
-                    title: Text(domainfirms[index].name),
-                    subtitle: Text(domainfirms[index].loginname),
-                    trailing: Text(domainfirms[index].web),
-                    isThreeLine: true,
-                    onTap: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>
-                              EditDomainFirmsView(domainfirms[index])));
-                    },
-                  );
-                })
-            : Center(child: CircularProgressIndicator()));
+      ),
+      drawer: CustomSideDrawer(),
+      body: ListView.builder(
+          itemCount: domainfirms.length,
+          itemBuilder: (context, index) {
+            return ListTile(
+              leading: Icon(
+                Icons.beach_access,
+                color: Colors.blue,
+                size: 36.0,
+              ),
+              title: Text(domainfirms[index].name!),
+              subtitle: Text(domainfirms[index].loginname!),
+              trailing: Text(domainfirms[index].web!),
+              isThreeLine: true,
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) =>
+                        EditDomainFirmsView(domainfirms[index])));
+              },
+            );
+          }),
+    );
   }
 }

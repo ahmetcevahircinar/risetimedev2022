@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 import 'package:risetimedev/models/domain_firms.dart';
 import 'package:risetimedev/providers/domainfirms_provider.dart';
 
+import '../services/domainfirms/firestore_domainfirms_service.dart';
+
 class EditDomainFirmsView extends StatefulWidget {
-  final DomainFirms domainfirm;
+  final DomainFirms? domainfirm;
 
   EditDomainFirmsView([this.domainfirm]);
 
@@ -42,15 +44,15 @@ class _EditDomainFirmsViewState extends State<EditDomainFirmsView> {
       });
     } else {
       //Controller Update
-      nameController.text = widget.domainfirm.name;
-      loginnameController.text = widget.domainfirm.loginname;
-      loginpasswordController.text = widget.domainfirm.loginpassword;
-      webController.text = widget.domainfirm.web;
+      nameController.text = widget.domainfirm!.name!;
+      loginnameController.text = widget.domainfirm!.loginname!;
+      loginpasswordController.text = widget.domainfirm!.loginpassword!;
+      webController.text = widget.domainfirm!.web!;
       //State Update
       new Future.delayed(Duration.zero, () {
         final domainfirmsProvider =
             Provider.of<DomainFirmsProvider>(context, listen: false);
-        domainfirmsProvider.loadValues(widget.domainfirm);
+        domainfirmsProvider.loadValues(widget.domainfirm!);
       });
     }
 
@@ -62,7 +64,10 @@ class _EditDomainFirmsViewState extends State<EditDomainFirmsView> {
     final domainfirmsProvider = Provider.of<DomainFirmsProvider>(context);
 
     return Scaffold(
-      appBar: AppBar(title: (widget.domainfirm != null) ? Text('Edit Domain Firm'):Text('Add Domain Firm')),
+      appBar: AppBar(
+          title: (widget.domainfirm != null)
+              ? Text('Edit Domain Firm')
+              : Text('Add Domain Firm')),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ListView(
@@ -102,7 +107,7 @@ class _EditDomainFirmsViewState extends State<EditDomainFirmsView> {
             ElevatedButton(
               child: Text('Save'),
               onPressed: () {
-                domainfirmsProvider.saveProduct();
+                domainfirmsProvider.saveDomainFirm();
                 Navigator.of(context).pop();
               },
             ),
@@ -110,7 +115,7 @@ class _EditDomainFirmsViewState extends State<EditDomainFirmsView> {
                 ? ElevatedButton(
                     child: Text('Delete'),
                     onPressed: () {
-                      domainfirmsProvider.removeProduct(widget.domainfirm.id);
+                      domainfirmsProvider.removeDomainFirm(widget.domainfirm!.id!);
                       Navigator.of(context).pop();
                     },
                   )

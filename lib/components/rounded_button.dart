@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:risetimedev/constants.dart';
 
 class RoundedButton extends StatelessWidget {
-  final String text;
-  final Function press;
+  final String? text;
+  final Function()? press;
   final Color color, textColor;
 
   const RoundedButton({
-    Key key,
+    Key? key,
     this.text,
     this.press,
     this.color = kPrimaryColor,
@@ -29,9 +29,9 @@ class RoundedButton extends StatelessWidget {
                   RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(29.0),
                       side: BorderSide(color: color)))),
-          onPressed: press,
+          onPressed: press!,
           child: Text(
-            text,
+            text!,
             style: TextStyle(color: textColor),
           ),
         ),

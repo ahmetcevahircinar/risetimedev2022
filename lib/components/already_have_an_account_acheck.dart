@@ -3,9 +3,9 @@ import 'package:risetimedev/constants.dart';
 
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
-  final Function press;
+  final Function()? press;
   const AlreadyHaveAnAccountCheck({
-    Key key,
+    Key? key,
     this.login = true,
     this.press,
   }) : super(key: key);
